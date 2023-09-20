@@ -1,5 +1,6 @@
 package com.riguz.adaptor.minimax;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.riguz.adaptor.prompt.FunctionCall;
@@ -7,6 +8,7 @@ import com.riguz.adaptor.prompt.FunctionCall;
 import java.util.List;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ChatResponse {
     private String reply;
     private List<Choice> choices;

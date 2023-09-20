@@ -8,6 +8,11 @@ public class BotSetting {
     private String botName;
     private String content;
 
+    public BotSetting(String botName, String content) {
+        this.botName = botName;
+        this.content = content;
+    }
+
     public String getBotName() {
         return botName;
     }

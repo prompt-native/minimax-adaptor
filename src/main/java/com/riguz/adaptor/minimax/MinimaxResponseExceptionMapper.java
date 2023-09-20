@@ -9,7 +9,7 @@ public class MinimaxResponseExceptionMapper implements ResponseExceptionMapper<R
     @Override
     public RuntimeException toThrowable(Response response) {
         if (response.getStatus() != 200) {
-            throw new RuntimeException("The remote service responded with HTTP 500");
+            throw new RuntimeException("The remote service invoke failed with code=" + response.getStatus());
         }
         return null;
     }

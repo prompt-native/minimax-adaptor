@@ -1,8 +1,10 @@
-package functions;
+package com.riguz.adaptor.functions;
+
 import com.riguz.adaptor.prompt.Choice;
 import com.riguz.adaptor.prompt.Usage;
 
 import java.util.List;
+
 public class Output {
     private String externalId;
     private List<Choice> choices;

@@ -1,29 +1,26 @@
 package com.riguz.adaptor.prompt;
 
 public class Usage {
-    private int totolTokens;
+    private int totalTokens;
     private int promptTokens;
     private int completionTokens;
 
-    public Usage() {
-    }
-
-    public Usage(int totolTokens, int promptTokens, int completionTokens) {
-        this.totolTokens = totolTokens;
+    public Usage(int totalTokens, int promptTokens, int completionTokens) {
+        this.totalTokens = totalTokens;
         this.promptTokens = promptTokens;
         this.completionTokens = completionTokens;
     }
 
-    public int getTotolTokens() {
-        return this.totolTokens;
+    public int getTotalTokens() {
+        return totalTokens;
     }
 
-    public void setTotolTokens(int totolTokens) {
-        this.totolTokens = totolTokens;
+    public void setTotalTokens(int totalTokens) {
+        this.totalTokens = totalTokens;
     }
 
     public int getPromptTokens() {
-        return this.promptTokens;
+        return promptTokens;
     }
 
     public void setPromptTokens(int promptTokens) {
@@ -31,32 +28,17 @@ public class Usage {
     }
 
     public int getCompletionTokens() {
-        return this.completionTokens;
+        return completionTokens;
     }
 
     public void setCompletionTokens(int completionTokens) {
         this.completionTokens = completionTokens;
     }
 
-    public Usage totolTokens(int totolTokens) {
-        setTotolTokens(totolTokens);
-        return this;
-    }
-
-    public Usage promptTokens(int promptTokens) {
-        setPromptTokens(promptTokens);
-        return this;
-    }
-
-    public Usage completionTokens(int completionTokens) {
-        setCompletionTokens(completionTokens);
-        return this;
-    }
-
     @Override
     public String toString() {
         return "Usage{" +
-                "totolTokens=" + totolTokens +
+                "totalTokens=" + totalTokens +
                 ", promptTokens=" + promptTokens +
                 ", completionTokens=" + completionTokens +
                 '}';

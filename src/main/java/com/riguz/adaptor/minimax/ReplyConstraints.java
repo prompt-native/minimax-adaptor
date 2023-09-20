@@ -8,6 +8,11 @@ public class ReplyConstraints {
     private String senderType;
     private String senderName;
 
+    public ReplyConstraints(String senderType, String senderName) {
+        this.senderType = senderType;
+        this.senderName = senderName;
+    }
+
     public String getSenderType() {
         return senderType;
     }

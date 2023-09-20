@@ -1,4 +1,4 @@
-package functions;
+package com.riguz.adaptor.functions;
 
 import com.riguz.adaptor.prompt.Chat;
 

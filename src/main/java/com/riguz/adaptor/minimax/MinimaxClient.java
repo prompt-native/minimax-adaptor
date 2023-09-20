@@ -12,7 +12,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 public interface MinimaxClient {
 
     @POST
-    @ClientHeaderParam(name = "Authentication", value = "Bearer {token}")
+    @ClientHeaderParam(name = "Authorization", value = "Bearer {token}")
     ChatResponse chat(@QueryParam("GroupId") String groupId,
                       @NotBody String token,
                       ChatRequest request);

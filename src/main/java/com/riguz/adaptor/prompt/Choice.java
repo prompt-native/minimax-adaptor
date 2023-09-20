@@ -3,10 +3,7 @@ package com.riguz.adaptor.prompt;
 public class Choice {
     private String finishReason;
     private Message message;
-
-    public Choice() {
-    }
-
+    
     public Choice(String finishReason, Message message) {
         this.finishReason = finishReason;
         this.message = message;

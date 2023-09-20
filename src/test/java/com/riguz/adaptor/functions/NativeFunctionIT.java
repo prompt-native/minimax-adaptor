@@ -1,4 +1,4 @@
-package functions;
+package com.riguz.adaptor.functions;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
