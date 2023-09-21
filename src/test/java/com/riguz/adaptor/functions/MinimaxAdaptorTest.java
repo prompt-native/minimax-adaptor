@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @QuarkusTest
-public class FunctionTest {
+public class MinimaxAdaptorTest {
 
     @Inject
     ObjectMapper objectMapper;

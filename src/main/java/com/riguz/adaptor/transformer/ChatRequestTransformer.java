@@ -1,9 +1,6 @@
 package com.riguz.adaptor.transformer;
 
-import com.riguz.adaptor.minimax.BotSetting;
-import com.riguz.adaptor.minimax.ChatRequest;
-import com.riguz.adaptor.minimax.Message;
-import com.riguz.adaptor.minimax.ReplyConstraints;
+import com.riguz.adaptor.minimax.*;
 import com.riguz.adaptor.prompt.Chat;
 import com.riguz.adaptor.prompt.Parameter;
 import com.riguz.adaptor.prompt.Role;
@@ -54,6 +51,10 @@ public class ChatRequestTransformer {
                         .stream()
                         .map(this::convertMessage)
                         .collect(Collectors.toList()));
+        request.setFunctions(prompt.getFunctions()
+                .stream()
+                .map(this::convertFunction)
+                .collect(Collectors.toList()));
         request.setReplyConstraints(new ReplyConstraints("BOT", botName));
         return request;
     }
@@ -76,6 +77,30 @@ public class ChatRequestTransformer {
         return result;
     }
 
+    private Function convertFunction(com.riguz.adaptor.prompt.Function function) {
+        Function result = new Function();
+        result.setName(function.getName());
+        result.setDescription(function.getDescription());
+        result.setParameters(convertFunctionParameter(function));
+
+        return result;
+    }
+
+    private FunctionParameter convertFunctionParameter(com.riguz.adaptor.prompt.Function function) {
+        FunctionParameter result = new FunctionParameter();
+        result.setType("object");
+        result.setProperties(function.getParameters()
+                .stream()
+                .collect(Collectors.toMap(com.riguz.adaptor.prompt.FunctionParameter::getName,
+                        p -> new Property(p.getType(), p.getDescription())
+                )));
+        result.setRequired(function.getParameters()
+                .stream()
+                .filter(com.riguz.adaptor.prompt.FunctionParameter::getRequired)
+                .map(com.riguz.adaptor.prompt.FunctionParameter::getName)
+                .collect(Collectors.toList()));
+        return result;
+    }
 
     private Optional<Parameter> findParameter(Chat prompt, String name) {
         return prompt.getParameters().stream()

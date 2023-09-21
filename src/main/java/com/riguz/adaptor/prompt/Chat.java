@@ -8,6 +8,8 @@ public class Chat {
     private String context;
     private List<Message> examples;
     private List<Message> messages;
+
+    private List<Function> functions;
     private List<Parameter> parameters;
 
     public String getVersion() {
@@ -58,6 +60,14 @@ public class Chat {
         this.parameters = parameters;
     }
 
+    public List<Function> getFunctions() {
+        return functions;
+    }
+
+    public void setFunctions(List<Function> functions) {
+        this.functions = functions;
+    }
+
     @Override
     public String toString() {
         return "Chat{" +
@@ -66,6 +76,7 @@ public class Chat {
                 ", context='" + context + '\'' +
                 ", examples=" + examples +
                 ", messages=" + messages +
+                ", functions=" + functions +
                 ", parameters=" + parameters +
                 '}';
     }

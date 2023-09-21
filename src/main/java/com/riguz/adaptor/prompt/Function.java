@@ -1,10 +1,11 @@
-package com.riguz.adaptor.minimax;
+package com.riguz.adaptor.prompt;
+
+import java.util.List;
 
 public class Function {
     private String name;
     private String description;
-
-    private FunctionParameter parameters;
+    private List<FunctionParameter> parameters;
 
     public String getName() {
         return name;
@@ -22,11 +23,11 @@ public class Function {
         this.description = description;
     }
 
-    public FunctionParameter getParameters() {
+    public List<FunctionParameter> getParameters() {
         return parameters;
     }
 
-    public void setParameters(FunctionParameter parameters) {
+    public void setParameters(List<FunctionParameter> parameters) {
         this.parameters = parameters;
     }
 

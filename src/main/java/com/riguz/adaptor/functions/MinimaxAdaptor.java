@@ -13,7 +13,7 @@ import jakarta.inject.Inject;
 import java.net.URI;
 import java.util.concurrent.ExecutionException;
 
-public class Function {
+public class MinimaxAdaptor {
     private final MinimaxClient minimaxClient;
     private final ChatRequestTransformer transformer;
     private final ChatResponseTransformer responseTransformer;
@@ -21,7 +21,7 @@ public class Function {
     @Inject
     private MinimaxConfig minimaxConfig;
 
-    public Function() {
+    public MinimaxAdaptor() {
         this.minimaxClient = QuarkusRestClientBuilder.newBuilder()
                 .baseUri(URI.create("https://api.minimax.chat"))
                 .build(MinimaxClient.class);
