@@ -11,6 +11,7 @@ import io.quarkus.rest.client.reactive.QuarkusRestClientBuilder;
 import jakarta.inject.Inject;
 
 import java.net.URI;
+import java.util.concurrent.ExecutionException;
 
 public class Function {
     private final MinimaxClient minimaxClient;
@@ -32,7 +33,13 @@ public class Function {
     public Output function(Input input) {
         ChatRequest request = transformer.transform(input.getPrompt());
         System.out.println(request);
-        ChatResponse response = this.minimaxClient.chat(minimaxConfig.groupId(), minimaxConfig.token(), request);
+        ChatResponse response;
+        try {
+            response = this.minimaxClient.chat(minimaxConfig.groupId(), minimaxConfig.token(), request)
+                    .toCompletableFuture().get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
         /*
         1000，未知错误
         1001，超时

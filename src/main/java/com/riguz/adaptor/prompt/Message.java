@@ -1,5 +1,8 @@
 package com.riguz.adaptor.prompt;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Message {
     private Role role;
     private String name;
